@@ -1,0 +1,18 @@
+<%= form_for(@post, local: true) do |form| %>
+  
+  <div>
+    
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :post_title %>
+
+    <%= form.label :article%>
+    <%= form.text_field :article, id: :post_article%>
+
+    <%= form.label :user_id %>
+    <%= form.collection_select(:user_id, User.all, :id, :email, {id: :post_user_id}) %>
+
+    <%= form.submit %>
+  </div>
+
+
+<% end %>

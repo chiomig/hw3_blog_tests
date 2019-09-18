@@ -3,10 +3,9 @@ FactoryBot.define do
     username { FFaker::Internet.user_name }
     email  { FFaker::Internet.email }
 
-    after(:build) do |user|
-      [:post, :post].each do |post|
-        user.posts << FactoryBot.build(:post, user: user)
-      end
+    factory :invalid_user do
+      username { nil }
+      email { nil }
     end
   end
 end
